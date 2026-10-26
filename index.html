@@ -33,6 +33,19 @@
                 fill: #FFA35F;
             }
             .orange:hover{fill:#FF7005;}
+            .green{
+                 stroke: black;
+                stroke-width: 4px;
+                fill: #78C445;
+            }
+            .green:hover{fill: #66AB37;}
+            .week {
+                stroke: black;
+                stroke-width: 4px;
+                fill: none;
+                pointer-events: all;
+            }
+            .week:hover{fill:gray}
         </style>
     </head>
     <body>
@@ -78,31 +91,20 @@
                 </g>
 
                 <g>
-                <!-- Rectangle at x=50, y=50 (Width: 300, Height: 100) -->
-                <rect x="50" y="50" width="300" height="100" fill="#78C445"/>
-                <!-- Text centered at x = 50 + (300/2) = 200, y = 50 + (100/2) = 100 -->
-                <text x="200" y="100" 
-                    fill="black" 
-                    font-family="sans-serif" 
-                    font-size="16" 
-                    text-anchor="middle" 
-                    dominant-baseline="middle">
-                Introduction to Machine Learning
+                <!-- Rectangle at x=2585, y=900 (Width: 682, Height: 263) -->
+                <rect class = "green" x="2585" y="900" width="682" height="263"/>
+                <!-- Text centered at x = 2585 + (682/2) = 200, y = 1020 -->
+                <text class="label001" x="2926" y="1020">
+                    <tspan x="2926" dy="0">Introduction to</tspan>
+                    <tspan x="2926" dy="1.2em">Machine Learning</tspan>
                 </text>
                 </g>
 
                 <g>
-                <!-- Rectangle at x=50, y=50 (Width: 300, Height: 100) -->
-                <rect x="50" y="50" width="300" height="100" fill="none"/>
-                <!-- Text centered at x = 50 + (300/2) = 200, y = 50 + (100/2) = 100 -->
-                <text x="200" y="100" 
-                    fill="black" 
-                    font-family="sans-serif" 
-                    font-size="16" 
-                    text-anchor="middle" 
-                    dominant-baseline="middle">
-                Week 1 to 6
-                </text>
+                <!-- Rectangle at x=227, y=1463 (Width: 451, Height: 115) -->
+                <rect class="week" x="227" y="1463" width="451" height="115"/>
+                <!-- Text centered at x = 227 + (451/2) = 453, y = 1540 -->
+                <text class="label001" x="453" y="1540">Week 1 to 6</text>
                 </g>
 
                 <g>
