@@ -93,6 +93,11 @@
                 text-anchor: middle;
                 dominant-baseline: central;
             }
+            .line010 g .line010arrow{
+                stroke: black;
+                stroke-width: 4px;
+                 marker-end: url(#arrow010);
+            }
         </style>
     </head>
     <body>
@@ -301,7 +306,7 @@
             <h2>010 - Directed Graph</h2>
             <svg width="1793px" height="1310" viewBox="0 0 1793 1310">
                 <defs>
-                  <marker id="arrow001" viewBox="0 0 12 10" refX="10" refY="5"
+                  <marker id="arrow010" viewBox="0 0 12 10" refX="10" refY="5"
                           markerWidth="8" markerHeight="8" orient="auto">
                     <path d="M0 0 L12 5 L0 10 Z"/>
                   </marker>
@@ -344,7 +349,10 @@
                         <!-- E6: midpoint (400, 780), offset (-32, -51) -->
                         <text x="400" y="780" dx="-56" dy="22">E6</text>
                     </g>
-                    <line class="line010arrow"></line>
+                    <g>
+                        <line class="line010arrow" x1="390" y1="550" x2="970" y2="790"></line>
+                        <text x="680" y="670" dx="23" dy="-55">E7</text>
+                    </g>
                 </g>
             </svg>
         </section>
