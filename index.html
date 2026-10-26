@@ -72,13 +72,26 @@
                 fill:none;
                 stroke:black;
                 stroke-width:2px;
+                pointer-events:all;
             }
+            .vertice010 circle:hover {fill:#E1E1E1;}
             .vertice010 text{
                 font-family: sans-serif;
                 font-size: 50px;
                 text-anchor: middle;
                 dominant-baseline: central;
                 pointer-events: none;
+            }
+            .line010{
+                stroke: black;
+                stroke-width: 4px;
+            }
+            .line010 text{
+                stroke:none;
+                font-family: sans-serif;
+                font-size: 50px;
+                text-anchor: middle;
+                dominant-baseline: central;
             }
         </style>
     </head>
@@ -287,6 +300,12 @@
         <section>
             <h2>010 - Directed Graph</h2>
             <svg width="1793px" height="1310" viewBox="0 0 1793 1310">
+                <defs>
+                  <marker id="arrow001" viewBox="0 0 12 10" refX="10" refY="5"
+                          markerWidth="8" markerHeight="8" orient="auto">
+                    <path d="M0 0 L12 5 L0 10 Z"/>
+                  </marker>
+                </defs>
                 <g class="vertice010">
                    <g>
                     <!-- vertice 1 -->
@@ -298,8 +317,30 @@
                     <circle cx="287" cy="500" r="115"></circle>
                     <text x="287" y="500">V2</text>
                    </g>
+                    <g>
+                    <!-- vertice 3 -->
+                    <circle cx="515" cy="1068" r="115"></circle>
+                    <text x="515" y="1068">V3</text>
+                   </g>
+                     <g>
+                    <!-- vertice 4 -->
+                    <circle cx="1077" cy="837" r="115"></circle>
+                    <text x="1077" y="837">V4</text>
+                   </g>
+                   <g>
+                    <!-- vertice 5 -->
+                    <circle cx="1563" cy="497" r="115"></circle>
+                    <text x="1563" y="497">V5</text>
+                   </g>
                 </g>
-                
+                <g class="line010">
+                    <g>
+                        <line x1="383" y1="443" x2="681" y2="258"></line>
+                        <!-- E1: midpoint (532, 350), offset (-32, -51) -->
+                        <text x="532" y="350" dx="-32" dy="-51">E1</text>
+                    </g>
+                    <line class="line010arrow"></line>
+                </g>
             </svg>
         </section>
     </body>
