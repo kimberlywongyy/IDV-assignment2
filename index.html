@@ -11,9 +11,16 @@
                 }
             .gray {
                 stroke: black;
-                stroke-width; 30px;
+                stroke-width: 4px;
+                fill: #E1E1E1;
             }
-            .gray:hover {fill: #9D9D9D}
+            .gray:hover {fill: #9D9D9D;}
+            .cyan{
+                stroke: black;
+                stroke-width: 4px;
+                fill: #00FDFF;
+            }
+            .cyan:hover {fill: #00C0C0;}
         </style>
     </head>
     <body>
@@ -22,26 +29,22 @@
             <h2>001 - Concept Map</h2>
             <svg width="3362" height="1717" viewBox = "0 0 3362 1717">
                  <g>
-                <!-- Rectangle at x=500, y=0 (Width: 250, Height: 100) -->
-                <rect class="gray" x="1341" y="156" width="686" height="278" fill="#E1E1E1" rx="139"/>
+                <!-- Rectangle at x=1341, y=156 (Width: 686, Height: 278) -->
+                <rect class="gray" x="1341" y="156" width="686" height="278" rx="139"/>
                 <!-- Text centered at x = 1341 + (686/2) = 1684, y = 156 + (278/2) = 295 -->
                 <text class = "label001" x="1684" y="295">
-                     <tspan x="1684" dy="0">Data Driven</tspan>
+                    <tspan x="1684" dy="0">Data Driven</tspan>
                     <tspan x="1684" dy="1.2em">World</tspan>
                 </text>
                 </g>
 
                 <g>
-                <!-- Rectangle at x=50, y=50 (Width: 300, Height: 100) -->
-                <rect x="0" y="200" width="250" height="80" fill="#00FDFF"/>
-                <!-- Text centered at x = 50 + (300/2) = 200, y = 50 + (100/2) = 100 -->
-                <text x="200" y="100" 
-                    fill="black" 
-                    font-family="sans-serif" 
-                    font-size="16" 
-                    text-anchor="middle" 
-                    dominant-baseline="middle">
-                Algorithms and Data Structures
+                <!-- Rectangle at x=110, y=900 (Width: 682, Height: 263) -->
+                <rect class="cyan" x="110" y="900" width="682" height="263"/>
+                <!-- Text centered at x = 110 + (682/2) = 451, y = 900 + (263/2) = 1032 -->
+                <text class="label001" x="451" y="1032">
+                    <tspan x="110" dy="0">Algorithms and Data</tspan>
+                    <tspan x="110" dy="1.2em">Structures</tspan>
                 </text>
                 </g>
 
