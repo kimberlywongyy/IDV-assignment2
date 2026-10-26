@@ -7,7 +7,7 @@
                  font-family: sans-serif;
                 font-size: 60px;
                  text-anchor: middle;
-                /* dominant-baseline: central; */
+                pointer-events: none;
                 }
             .gray {
                 stroke: black;
@@ -66,16 +66,20 @@
                 </defs>
 
                 <!-- top level lines -->
-                <line class ="line001" x1="1479" y1="413" x2="674" y2="897"/>
-                <line class ="line001" x1="1613" y1="413" x2="1351" y2="897"/>
-                <line class ="line001" x1="1763" y1="413" x2="2034" y2="897"/>
-                <line class ="line001" x1="1908" y1="413" x2="2706" y2="897"/>
+                <g>
+                    <line class ="line001" x1="1479" y1="413" x2="674" y2="897"/>
+                    <line class ="line001" x1="1613" y1="413" x2="1351" y2="897"/>
+                    <line class ="line001" x1="1763" y1="413" x2="2034" y2="897"/>
+                    <line class ="line001" x1="1908" y1="413" x2="2706" y2="897"/>
+                </g>
 
                 <!-- bottom level lines -->
-                 <line class ="line001" x1="453" y1="1163" x2="453" y2="1466"/>
-                 <line class ="line001" x1="1279" y1="1163" x2="1279" y2="1466"/>
-                 <line class ="line001" x1="2102" y1="1163" x2="2102" y2="1466"/>
-                 <line class ="line001" x1="2928" y1="1163" x2="2928" y2="1466"/>
+                <g> 
+                    <line class ="line001" x1="453" y1="1163" x2="453" y2="1466"/>
+                     <line class ="line001" x1="1279" y1="1163" x2="1279" y2="1466"/>
+                     <line class ="line001" x1="2102" y1="1163" x2="2102" y2="1466"/>
+                     <line class ="line001" x1="2928" y1="1163" x2="2928" y2="1466"/>
+                </g>
                 
                  <g>
                 <!-- Rectangle at x=1341, y=156 (Width: 686, Height: 278) -->
@@ -123,7 +127,7 @@
                 <g>
                 <!-- Rectangle at x=2585, y=900 (Width: 682, Height: 263) -->
                 <rect class = "green" x="2585" y="900" width="682" height="263"/>
-                <!-- Text centered at x = 2585 + (682/2) = 200, y = 1020 -->
+                <!-- Text centered at x = 2585 + (682/2) = 2926, y = 1020 -->
                 <text class="label001" x="2926" y="1020">
                     <tspan x="2926" dy="0">Introduction to</tspan>
                     <tspan x="2926" dy="1.2em">Machine Learning</tspan>
