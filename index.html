@@ -834,6 +834,23 @@
                 // accounts that y is counting from top down
                 return marginTop + plotHeight - (y/50) * plotHeight;
             }
+
+            // assign the x values and y values to an array for the linear graph
+            let pointsLinear = [];
+            for (let i=0; i<xValues.length; i++){
+                if (yLinear[i] > 50) break;
+                let x = xToPixelX(xValues[i]);
+                let y = yToPixelY(yLinear[i]);
+                pointsLinear.push(`${x},${y}`);
+            }
+
+            const svg = document.getElementById("graph");
+            const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+            polyline.setAttribute("points", pointsLinear.join(" "));
+            polyline.setAttribute("fill", "none");
+            polyline.setAttribute("stroke", "blue");
+            polyline.setAttribute("stroke-width", "2");
+            svg.appendChild(polyline);
         </script>
     </body>
 </html>
