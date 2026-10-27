@@ -837,6 +837,7 @@
 
             // function to assign the x values and y values to an array and add the graph to the svg element
            const svg = document.getElementById("graph");
+            
             function drawCurve(yArray, colour) {
                 let points = [];
                 for (let i = 0; i < xValues.length; i++) {
@@ -868,7 +869,7 @@
             border.setAttribute("height", plotHeight);
             border.setAttribute("fill", "none");
             border.setAttribute("stroke", "black");
-            border.setAttribute("stroke-width", "1");
+            border.setAttribute("stroke-width", "4");
             svg.appendChild(border);
 
             //x ticker marks
