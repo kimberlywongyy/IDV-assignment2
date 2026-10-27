@@ -107,6 +107,11 @@
                 stroke-width:2px;
                 fill: #DBE2EF;
             }
+            .col1-014 g line {
+                stroke: #000E77;
+                stroke-width:1px;
+                fill: #DBE2EF;
+            }
             .col1-014 g rect:hover{fill:#A2B5D6;}
             .col1-014 g text{
                 fill: #000E77;
@@ -116,7 +121,7 @@
                 dominant-baseline:central;
                 pointer-events: none;
             }
-            .childtext{font-size:18px;}
+            .childtext{font-size:12px;}
         </style>
     </head>
     <body>
@@ -410,11 +415,12 @@
                 <g class="col1-014">
                     <!-- column 1 plot -->
                     <g>
+                        <line x1="110" y1="168" x2="110" y2="227"></line>
                         <!-- header box -->
                         <rect x="11" y="48" width="197" height="120" rx="25"></rect>
                         <text>
                             <tspan x="109" y="99">relplot</tspan>
-                            <tspan x="109" dy="20">(relational)</tspan>
+                            <tspan x="109" dy="25">(relational)</tspan>
                         </text>
                     </g>
                     <g>
@@ -423,7 +429,9 @@
                         <text class="childtext" x="35" y="186" dx="75" dy="16">scatterplot</text>
                     </g>
                     <g>
-                        <!-- child box lineplot -->
+                        <!-- child box lineplot x=35, y=186+32+9=227 -->
+                        <rect x="35" y="227" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="35" y="227" dx="75" dy="16">lineplot</text>
                     </g>
                 </g>
             </svg>
