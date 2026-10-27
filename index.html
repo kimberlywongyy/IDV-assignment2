@@ -803,7 +803,7 @@
         </section>
         <section>
             <h2>003 - Growth Curves</h2>
-            <svg></svg>
+            <svg id="graph" width="800" height="600" viewBox="0 0 800 600"></svg>
         </section>
         <script>
             // generate x values to input into the various functions, 101 values inclusive of 0.01 and 10
@@ -819,8 +819,21 @@
             let yLog = xValues.map(x => Math.log(x));
             let yLogLinear = xValues.map(x => x * Math.log(x));
 
-            console.log(yExp[yExp.length - 1]);
-            console.log(yLog[0]);
+            const marginLeft = 60;
+            const marginTop = 20;
+            const marginRight = 20;
+            const marginBottom = 50;
+            const plotWidth = 720;
+            const plotHeight = 530;
+                
+            function xToPixelX (x) {
+                // a fraction of the x domain converted to the plotWidth in pixels
+                return marginLeft + (x / 10) * plotWidth;
+            }
+            function yToPixelY (y){
+                // accounts that y is counting from top down
+                return marginTop + plotHeight - (y/50) * plotHeight;
+            }
         </script>
     </body>
 </html>
