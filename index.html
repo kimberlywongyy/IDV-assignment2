@@ -216,6 +216,21 @@
                 marker-start: url(#arrow004);
                 marker-end: url(#arrow004);
             }
+            .gradrect008{
+                fill:url(#redgrad008);
+                stroke:black;
+                stroke-width:3px;
+            }
+            .textandlines008 text{
+                fill: black;
+                font-family:sans-serif;
+                font-size:14px;
+            }
+            .textandlines008 line{
+                stroke:black;
+                stroke-width:1px;
+                marker-end:url(#arrow008);
+            }
         </style>
     </head>
     <body>
@@ -731,7 +746,37 @@
                     <line class="doublearrow004" x1="369" y1="19" x2="369" y2="252"></line>
                     <text x="397" y="134">n</text>
                 </g>
-                 
+            </svg>
+        </section>
+        <section>
+            <h2>008 - Stack Diagram1</h2>
+            <svg width="180" height="270" viewBox="0 0 180 270">
+                <defs>
+                    <linearGradient id="redgrad008" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FF7C7C"/>
+                        <stop offset="100%" stop-color="#FF1F1F"/>
+                    </linearGradient>
+                     <marker id="arrow008" viewBox="0 0 12 10" refX="10" refY="5"
+                         markerWidth="5" markerHeight="5" orient="auto">
+                         <path d="M0 0 L12 5 L0 10" fill="none" stroke="black" stroke-width="1.5"/>
+                     </marker>
+                </defs>
+                <!-- red rectangles -->
+                <g> 
+                    <rect class="gradrect008" x="8" y="8" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="100" y="8" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="54" y="90" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="54" y="125" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="54" y="161" width="71" height="26"></rect>
+                </g>
+                <!-- text and arrows -->
+                <g class="textandlines008">
+                    <text x="26" y="69">push</text>
+                    <text x="126" y="69">pop</text>
+                    <text x="135" y="105">peek</text>
+                    <line x1="54" y1="44" x2="74" y2="80"></line>
+                    <line></line>
+                </g>
             </svg>
         </section>
     </body>
