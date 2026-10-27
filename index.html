@@ -840,6 +840,7 @@
                 let points = [];
                 for (let i = 0; i < xValues.length; i++) {
                     if (yArray[i] > 50) break;
+                    if (yArray[i] < 0) continue;
                     let x = xToPixelX(xValues[i]);
                     let y = yToPixelY(yArray[i]);
                     points.push(`${x},${y}`);
