@@ -874,47 +874,70 @@
 
             //x ticker marks
             for (let xTick = 0; xTick <= 10; xTick += 2) {
-            let px = xToPixelX(xTick);
-            let py = marginTop + plotHeight; // the bottom edge of the plot
-
-            // small tick mark, a short vertical line
-            const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
-            tick.setAttribute("x1", px);
-            tick.setAttribute("y1", py);
-            tick.setAttribute("x2", px);
-            tick.setAttribute("y2", py + 5);
-            tick.setAttribute("stroke", "black");
-            svg.appendChild(tick);
+                let px = xToPixelX(xTick);
+                let pyBottom = marginTop + plotHeight;
+                let pyTop = marginTop;
+            
+                // bottom tick (existing)
+                const tickBottom = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                tickBottom.setAttribute("x1", px);
+                tickBottom.setAttribute("y1", pyBottom);
+                tickBottom.setAttribute("x2", px);
+                tickBottom.setAttribute("y2", pyBottom + 5);
+                tickBottom.setAttribute("stroke", "black");
+                svg.appendChild(tickBottom);
+            
+                // top tick (new, mirrored)
+                const tickTop = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                tickTop.setAttribute("x1", px);
+                tickTop.setAttribute("y1", pyTop);
+                tickTop.setAttribute("x2", px);
+                tickTop.setAttribute("y2", pyTop - 5);
+                tickTop.setAttribute("stroke", "black");
+                svg.appendChild(tickTop);
+            
+                // number label, only below the bottom tick (existing)
+                const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                label.setAttribute("x", px);
+                label.setAttribute("y", pyBottom + 20);
+                label.setAttribute("text-anchor", "middle");
+                label.textContent = xTick;
+                svg.appendChild(label);
+            }
+        //y axis tickers
+       for (let yTick = 0; yTick <= 50; yTick += 10) {
+            let pxLeft = marginLeft;
+            let pxRight = marginLeft + plotWidth;
+            let py = yToPixelY(yTick);
         
-            // the number label below the tick
+            // left tick (existing)
+            const tickLeft = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            tickLeft.setAttribute("x1", pxLeft - 5);
+            tickLeft.setAttribute("y1", py);
+            tickLeft.setAttribute("x2", pxLeft);
+            tickLeft.setAttribute("y2", py);
+            tickLeft.setAttribute("stroke", "black");
+            svg.appendChild(tickLeft);
+        
+            // right tick (new, mirrored)
+            const tickRight = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            tickRight.setAttribute("x1", pxRight);
+            tickRight.setAttribute("y1", py);
+            tickRight.setAttribute("x2", pxRight + 5);
+            tickRight.setAttribute("y2", py);
+            tickRight.setAttribute("stroke", "black");
+            svg.appendChild(tickRight);
+        
+            // number label, only on the left side (existing)
             const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            label.setAttribute("x", px);
-            label.setAttribute("y", py + 20);
-            label.setAttribute("text-anchor", "middle");
-            label.textContent = xTick;
+            label.setAttribute("x", pxLeft - 10);
+            label.setAttribute("y", py);
+            label.setAttribute("text-anchor", "end");
+            label.setAttribute("dominant-baseline", "middle");
+            label.textContent = yTick;
             svg.appendChild(label);
         }
-        //y axis tickers
-        for (let yTick = 0; yTick <= 50; yTick += 10) {
-        let px = marginLeft; // the left edge of the plot
-        let py = yToPixelY(yTick);
-    
-        const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        tick.setAttribute("x1", px - 5);
-        tick.setAttribute("y1", py);
-        tick.setAttribute("x2", px);
-        tick.setAttribute("y2", py);
-        tick.setAttribute("stroke", "black");
-        svg.appendChild(tick);
-    
-        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        label.setAttribute("x", px - 10);
-        label.setAttribute("y", py);
-        label.setAttribute("text-anchor", "end");
-        label.setAttribute("dominant-baseline", "middle");
-        label.textContent = yTick;
-        svg.appendChild(label);
-    }
+       
         </script>
     </body>
 </html>
