@@ -937,7 +937,20 @@
             label.textContent = yTick;
             svg.appendChild(label);
         }
-       
+       function drawLabel(text, x, y, colour) {
+            const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            label.setAttribute("x", x);
+            label.setAttribute("y", y);
+            label.setAttribute("fill", colour);
+            label.textContent = text;
+            svg.appendChild(label);
+        }
+        drawLabel("logarithmic", xToPixelX(7), yToPixelY(5), "green");
+        drawLabel("linear", xToPixelX(7), yToPixelY(12), "blue");
+        drawLabel("log linear", xToPixelX(6), yToPixelY(22), "orange");
+        drawLabel("quadratic", xToPixelX(5), yToPixelY(35), "red");
+        drawLabel("cubic", xToPixelX(2.5), yToPixelY(42), "purple");
+        drawLabel("exponential", xToPixelX(0.8), yToPixelY(45), "brown");
         </script>
     </body>
 </html>
