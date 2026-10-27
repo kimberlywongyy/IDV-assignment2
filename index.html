@@ -812,7 +812,15 @@
             for(let x = 0.01; x <= 10; x += step){
                 xValues.push(x);
             }
-            console.log(xValues);
+            let yLinear = xValues.map(x => x);
+            let yCubic = xValues.map(x => x*x*x);
+            let yQuadratic = xValues.map(x => x*x);
+            let yExp = xValues.map(x => Math.pow(2,x));
+            let yLog = xValues.map(x => Math.log(x));
+            let yLogLinear = xValues.map(x => x * Math.log(x));
+
+            console.log(yExp[yExp.length - 1]);
+            console.log(yLog[0]);
         </script>
     </body>
 </html>
