@@ -836,7 +836,8 @@
             }
 
             // function to assign the x values and y values to an array and add the graph to the svg element
-           function drawCurve(yArray, colour) {
+           const svg = document.getElementById("graph");
+            function drawCurve(yArray, colour) {
                 let points = [];
                 for (let i = 0; i < xValues.length; i++) {
                     if (yArray[i] > 50) break;
@@ -845,7 +846,6 @@
                     let y = yToPixelY(yArray[i]);
                     points.push(`${x},${y}`);
                 }
-               const svg = document.getElementById("graph");
                const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
                polyline.setAttribute("points", points.join(" "));
                polyline.setAttribute("fill", "none");
@@ -860,6 +860,60 @@
             drawCurve(yQuadratic, "red");
             drawCurve(yCubic, "purple");
             drawCurve(yExp, "brown");
+
+            const border = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            border.setAttribute("x", marginLeft);
+            border.setAttribute("y", marginTop);
+            border.setAttribute("width", plotWidth);
+            border.setAttribute("height", plotHeight);
+            border.setAttribute("fill", "none");
+            border.setAttribute("stroke", "black");
+            border.setAttribute("stroke-width", "1");
+            svg.appendChild(border);
+
+            //x ticker marks
+            for (let xTick = 0; xTick <= 10; xTick += 2) {
+            let px = xToPixelX(xTick);
+            let py = marginTop + plotHeight; // the bottom edge of the plot
+
+            // small tick mark, a short vertical line
+            const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            tick.setAttribute("x1", px);
+            tick.setAttribute("y1", py);
+            tick.setAttribute("x2", px);
+            tick.setAttribute("y2", py + 5);
+            tick.setAttribute("stroke", "black");
+            svg.appendChild(tick);
+        
+            // the number label below the tick
+            const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            label.setAttribute("x", px);
+            label.setAttribute("y", py + 20);
+            label.setAttribute("text-anchor", "middle");
+            label.textContent = xTick;
+            svg.appendChild(label);
+        }
+        //y axis tickers
+        for (let yTick = 0; yTick <= 50; yTick += 10) {
+        let px = marginLeft; // the left edge of the plot
+        let py = yToPixelY(yTick);
+    
+        const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        tick.setAttribute("x1", px - 5);
+        tick.setAttribute("y1", py);
+        tick.setAttribute("x2", px);
+        tick.setAttribute("y2", py);
+        tick.setAttribute("stroke", "black");
+        svg.appendChild(tick);
+    
+        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute("x", px - 10);
+        label.setAttribute("y", py);
+        label.setAttribute("text-anchor", "end");
+        label.setAttribute("dominant-baseline", "middle");
+        label.textContent = yTick;
+        svg.appendChild(label);
+    }
         </script>
     </body>
 </html>
