@@ -206,6 +206,12 @@
                 stroke-width: 1px;
                 stroke-dasharray: 5,5;
             }
+            .doublearrow004{
+                stroke:black;
+                stroke-width:1px;
+                marker-start: url(#arrow004);
+                marker-end: url(#arrow004);
+            }
         </style>
     </head>
     <body>
@@ -679,7 +685,7 @@
             <svg width="425" height="275" viewBox="0 0 425 275">
              <defs>
               <marker id="arrow004" viewBox="0 0 12 10" refX="10" refY="5"
-                      markerWidth="10" markerHeight="10" orient="auto">
+                      markerWidth="10" markerHeight="10" orient="auto-start-reverse">
                 <path d="M0 0 L12 5 L0 10 Z"/>
               </marker>
              </defs>
@@ -717,7 +723,11 @@
                     <text x="259" y="247">T(1)</text>
                     <line class="horizontalarrow004" x1="278" y1="249" x2="321" y2="249"></line>
                     <text x="340" y="247">c</text>
+
+                    <line class="doublearrow004" x1="369" y1="19" x2="369" y2="252"></line>
+                    <text x="397" y="134">n</text>
                 </g>
+                 
             </svg>
         </section>
     </body>
