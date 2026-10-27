@@ -183,14 +183,28 @@
             .redtext{fill:red;}
             .orangetext{fill:orange;}
             .chain01-004 text,
-            .chain01-004 text,
-            .chain01-004 text {
+            .chain02-004 text,
+            .chain03-004 text {
                 font-family:sans-serif;
-                font-size:24px;
+                font-size:18px;
                 text-anchor:middle;
                 dominant-baseline:central;
-                pointer-events: none;
-                font-size:20px;
+            }
+            .chain01-004 line,
+            .chain02-004 line,
+            .chain03-004 line {
+                stroke:black;
+                stroke-width:1px;
+            }
+            .chain03-004 .horizontalarrow004{
+                stroke:black;
+                stroke-width:1px;
+                marker-end:url(#arrow004);
+            }
+            .chain03-004 .verticalline004{
+                stroke: black;
+                stroke-width: 1px;
+                stroke-dasharray: 5,5;
             }
         </style>
     </head>
@@ -662,13 +676,48 @@
         </section>
         <section>
             <h2>004 - Recursion Tree</h2>
-            <svg>
-                <g class="chain01-004"></g>
-                <g class="chain02-004"></g>
-                <g class="chain03-004"></g>
-                    <text>c</text>
-                    <line></line>
-                    <text>c</text>
+            <svg width="425" height="275" viewBox="0 0 425 275">
+             <defs>
+              <marker id="arrow004" viewBox="0 0 12 10" refX="10" refY="5"
+                      markerWidth="10" markerHeight="10" orient="auto">
+                <path d="M0 0 L12 5 L0 10 Z"/>
+              </marker>
+             </defs>
+                <g class="chain01-004">
+                    <text x="33" y="21">c</text>
+                    <line x1="33" y1="33" x2="33" y2="62"></line>
+                    <text x="33" y="79">T(n-1)</text>
+                </g>
+                <g class="chain02-004">
+                    <text x="154" y="21">c</text>
+                    <line x1="154" y1="33" x2="154" y2="62"></line>
+                    <text x="154" y="79">c</text>
+                    <line x1="154" y1="93" x2="154" y2="122"></line>    
+                    <text x="154" y="137">T(n-2)</text>
+                </g>
+                <g class="chain03-004">
+                    <text x="259" y="21">c</text>
+                    <line class="horizontalarrow004" x1="278" y1="23" x2="321" y2="23"></line>
+                    <text x="340" y="21">c</text>
+
+                    <line x1="259" y1="33" x2="259" y2="62"></line>
+
+                    <text x="259" y="79">c</text>
+                    <line class="horizontalarrow004" x1="278" y1="81" x2="321" y2="81"></line>
+                    <text x="340" y="79">c</text>
+
+                    <line x1="259" y1="93" x2="259" y2="122"></line>
+
+                    <text x="259" y="137">c</text>
+                    <line class="horizontalarrow004" x1="278" y1="139" x2="321" y2="139"></line>
+                    <text x="340" y="137">c</text>
+
+                    <line class="verticalline004" x1="259" y1="149" x2="259" y2="230"></line>
+
+                    <text x="259" y="247">T(1)</text>
+                    <line class="horizontalarrow004" x1="278" y1="249" x2="321" y2="249"></line>
+                    <text x="340" y="247">c</text>
+                </g>
             </svg>
         </section>
     </body>
