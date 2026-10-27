@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <style>
-           .label001 { fill: black; 
+           .label001 { 
+                fill: black; 
                 font-family: sans-serif;
                 font-size: 60px;
                 text-anchor: middle;
@@ -76,6 +77,7 @@
             }
             .vertice010 circle:hover {fill:#E1E1E1;}
             .vertice010 text{
+                fill:black;
                 font-family: sans-serif;
                 font-size: 50px;
                 text-anchor: middle;
@@ -88,6 +90,7 @@
             }
             .line010 g text{
                 stroke:none;
+                fill: black;
                 font-family: sans-serif;
                 font-size: 50px;
                 text-anchor: middle;
@@ -98,6 +101,14 @@
                 stroke: black;
                 stroke-width: 4px;
                  marker-end: url(#arrow010);
+            }
+            .col1-014 g rect {
+                fill: #DBE2EF;
+                stroke-width:3px;
+                stroke: #000E77;
+            }
+            .col1-014 g text{
+                
             }
         </style>
     </head>
@@ -377,6 +388,31 @@
             <h2>014 - Seaborn Hierarchy</h2>
             <svg width="633px" height="457" viewBox="0 0 633 457">
                 <rect x="0" y="0" width="633" height="457" fill="white"></rect>
+                <!--
+                  Layout constants (all px, derived from sketch: x=8, y=24.625x≈197, z=9)
+                  horizontalMargin=11(canvas edge -> column 1 left)
+                  gap,x=8(between columns)
+                  headercolWidth,y=197(header box width = y)
+                  verticalMargin=48(canvas top -> header top = 5.3z)
+                  headerHeight=120(header box height = 13.3z)
+                  headerToChild=18(header bottom -> first child top = 2z)
+                  childHeight=32(one child box height = 3.6z)
+                  childGap,z=9(between child boxes = 1z)
+                  childcolWidth=149(child box width = 18.625x, centred under header)
+                -->
+                <g class="col1-014">
+                    <!-- column 1 plot -->
+                    <g>
+                        <!-- header box -->
+                        <rect x="11" y="48" width="197" height="120"></rect>
+                    </g>
+                    <g>
+                        <!-- child box scatterplot-->
+                    </g>
+                    <g>
+                        <!-- child box lineplot -->
+                    </g>
+                </g>
             </svg>
         </section>
     </body>
