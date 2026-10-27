@@ -805,5 +805,14 @@
             <h2>003 - Growth Curves</h2>
             <svg></svg>
         </section>
+        <script>
+            // generate x values to input into the various functions, 101 values inclusive of 0.01 and 10
+            let xValues = [];
+            let step = 0.05;
+            for(let x = 0.01; x <= 10; x += step){
+                xValues.push(x);
+            }
+            console.log(xValues);
+        </script>
     </body>
 </html>
