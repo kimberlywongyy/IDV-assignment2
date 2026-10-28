@@ -869,19 +869,26 @@
                     anim.setAttribute("begin", "1s");
                     anim.setAttribute("fill", "freeze");
                     polyline.appendChild(anim);
-                
-                polyline.addEventListener("mouseenter", () => {
+
+                function highlight(polyline, labelElement){
                     labelElement.setAttribute("fill", "red");
                     labelElement.setAttribute("font-size", "16");
                     polyline.setAttribute("stroke","red");
                     polyline.setAttribute("stroke-width","4");
-                });
-                polyline.addEventListener("mouseleave", () => {
+                }
+                function unhighlight(polyline, labelElement){
                     labelElement.setAttribute("fill", "black");
                     labelElement.setAttribute("font-size", "14");
                     polyline.setAttribute("stroke", "black");
                     polyline.setAttribute("stroke-width", "2");
-                });
+                }
+                
+                polyline.addEventListener("mouseenter", () => highlight(polyline, labelElement));
+                polyline.addEventListener("mouseleave", () => unhighlight(polyline, labelElement));
+
+                labelElement.addEventListener("mouseenter", () => highlight(polyline, labelElement));
+                labelElement.addEventListener("mouseleave", () => unhighlight(polyline, labelElement));
+                    
             }
         
 
