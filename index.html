@@ -812,6 +812,8 @@
             for(let x = 0.01; x <= 10; x += step){
                 xValues.push(x);
             }
+
+            // sets up the y values as an array iaw the formula within the brackets
             let yLinear = xValues.map(x => x);
             let yCubic = xValues.map(x => x*x*x);
             let yQuadratic = xValues.map(x => x*x);
@@ -835,33 +837,38 @@
                 return marginTop + plotHeight - (y/50) * plotHeight;
             }
 
-            // function to assign the x values and y values to an array and add the graph to the svg element
+          
            const svg = document.getElementById("graph");
             
-            function drawCurve(yArray, colour) {
+            // function to assign the x values and y values to an array and add the curve to the svg element which references the svg id="graph"
+            function drawCurve(yArray) {
                 let points = [];
                 for (let i = 0; i < xValues.length; i++) {
+                    // loop stops when y exceeds 50
                     if (yArray[i] > 50) break;
+                    // loop continues and doesn't draw if y is less than 0 i.e. negative
                     if (yArray[i] < 0) continue;
                     let x = xToPixelX(xValues[i]);
                     let y = yToPixelY(yArray[i]);
                     points.push(`${x},${y}`);
                 }
                const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+                //joins the x,y pairs with spaces so the polyline can read them”
                polyline.setAttribute("points", points.join(" "));
                polyline.setAttribute("fill", "none");
-               polyline.setAttribute("stroke", colour);
+               polyline.setAttribute("stroke", "black");
                polyline.setAttribute("stroke-width", "2");
                svg.appendChild(polyline);
             }
             
-            drawCurve(yLog, "green");
-            drawCurve(yLinear, "blue");
-            drawCurve(yLogLinear, "orange");
-            drawCurve(yQuadratic, "red");
-            drawCurve(yCubic, "purple");
-            drawCurve(yExp, "brown");
+            drawCurve(yLog);
+            drawCurve(yLinear);
+            drawCurve(yLogLinear);
+            drawCurve(yQuadratic);
+            drawCurve(yCubic);
+            drawCurve(yExp);
 
+            //creates the borders of the graph
             const border = document.createElementNS("http://www.w3.org/2000/svg", "rect");
             border.setAttribute("x", marginLeft);
             border.setAttribute("y", marginTop);
@@ -878,7 +885,7 @@
                 let pyBottom = marginTop + plotHeight;
                 let pyTop = marginTop;
             
-                // bottom tick (existing)
+                // bottom ticks
                 const tickBottom = document.createElementNS("http://www.w3.org/2000/svg", "line");
                 tickBottom.setAttribute("x1", px);
                 tickBottom.setAttribute("y1", pyBottom);
@@ -887,7 +894,7 @@
                 tickBottom.setAttribute("stroke", "black");
                 svg.appendChild(tickBottom);
             
-                // top tick (new, mirrored)
+                // top ticks
                 const tickTop = document.createElementNS("http://www.w3.org/2000/svg", "line");
                 tickTop.setAttribute("x1", px);
                 tickTop.setAttribute("y1", pyTop);
@@ -896,7 +903,7 @@
                 tickTop.setAttribute("stroke", "black");
                 svg.appendChild(tickTop);
             
-                // number label, only below the bottom tick (existing)
+                // number label, only below the bottom ticks
                 const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 label.setAttribute("x", px);
                 label.setAttribute("y", pyBottom + 20);
@@ -910,7 +917,7 @@
             let pxRight = marginLeft + plotWidth;
             let py = yToPixelY(yTick);
         
-            // left tick (existing)
+            // left ticks
             const tickLeft = document.createElementNS("http://www.w3.org/2000/svg", "line");
             tickLeft.setAttribute("x1", pxLeft - 5);
             tickLeft.setAttribute("y1", py);
@@ -919,7 +926,7 @@
             tickLeft.setAttribute("stroke", "black");
             svg.appendChild(tickLeft);
         
-            // right tick (new, mirrored)
+            // right ticks
             const tickRight = document.createElementNS("http://www.w3.org/2000/svg", "line");
             tickRight.setAttribute("x1", pxRight);
             tickRight.setAttribute("y1", py);
@@ -928,7 +935,7 @@
             tickRight.setAttribute("stroke", "black");
             svg.appendChild(tickRight);
         
-            // number label, only on the left side (existing)
+            // number label, only on the left side
             const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
             label.setAttribute("x", pxLeft - 10);
             label.setAttribute("y", py);
@@ -937,20 +944,21 @@
             label.textContent = yTick;
             svg.appendChild(label);
         }
-       function drawLabel(text, x, y, colour) {
+        // graphed out labels e.g. logarithmic etc.
+       function drawLabel(text, x, y) {
             const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
             label.setAttribute("x", x);
             label.setAttribute("y", y);
-            label.setAttribute("fill", colour);
+            label.setAttribute("fill", "black");
             label.textContent = text;
             svg.appendChild(label);
         }
-        drawLabel("logarithmic", xToPixelX(8), yToPixelY(Math.log(8)) - 10, "green");
-        drawLabel("linear", xToPixelX(8), yToPixelY(8) - 10, "blue");
-        drawLabel("log linear", xToPixelX(7), yToPixelY(7 * Math.log(7)) - 30, "orange");
-        drawLabel("quadratic", xToPixelX(6), yToPixelY(6*6) + 15, "red");
-        drawLabel("cubic", xToPixelX(2.8)-30, yToPixelY(2.8*2.8*2.8) - 50, "purple");
-        drawLabel("exponential", xToPixelX(4.5)-80, yToPixelY(Math.pow(2,4.5)) - 10, "brown");
+        drawLabel("logarithmic", xToPixelX(8), yToPixelY(Math.log(8)) - 10);
+        drawLabel("linear", xToPixelX(8), yToPixelY(8) - 10);
+        drawLabel("log linear", xToPixelX(7), yToPixelY(7 * Math.log(7)) - 30);
+        drawLabel("quadratic", xToPixelX(6), yToPixelY(6*6) + 15);
+        drawLabel("cubic", xToPixelX(2.8)-30, yToPixelY(2.8*2.8*2.8) - 50);
+        drawLabel("exponential", xToPixelX(4.5)-80, yToPixelY(Math.pow(2,4.5)) - 10);
         </script>
     </body>
 </html>
