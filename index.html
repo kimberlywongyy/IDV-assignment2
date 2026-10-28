@@ -243,6 +243,11 @@
             .opencontainer008:hover{stroke:#3F3FFF;}
             .triangle008{fill:#9B9BFF; fill-opacity:0.9;}
             .triangle008:hover{fill:#3F3FFF;}
+            .labelCurve{
+                fill: black;
+                font-family:sans-serif;
+                font-size:14px;
+            }
         </style>
     </head>
     <body>
@@ -839,9 +844,856 @@
 
           
            const svg = document.getElementById("graph");
+            // document.getElementById("graph").addEventListener("mouseenter", () => console.log("SVG HOVER WORKS"));<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+           .label001 { 
+                fill: black; 
+                font-family: sans-serif;
+                font-size: 60px;
+                text-anchor: middle;
+                pointer-events: none;
+                }
+            .label002{
+                font-family: sans-serif;
+                font-size: 15px;
+                text-anchor: middle;
+                dominant-baseline: central;
+                pointer-events: none;
+            }
+            .gray {
+                stroke: black;
+                stroke-width: 4px;
+                fill: #E1E1E1;
+            }
+            .gray:hover {fill: #9D9D9D;}
+            .cyan{
+                stroke: black;
+                stroke-width: 4px;
+                fill: #00FDFF;
+            }
+            .cyan:hover {fill: #00C0C0;}
+            .pink{
+                stroke: black;
+                stroke-width: 4px;
+                fill: #F7788A;
+            }
+            .pink:hover {fill: #F22A47;}
+            .orange {
+                stroke: black;
+                stroke-width: 4px;
+                fill: #FFA35F;
+            }
+            .orange:hover{fill:#FF7005;}
+            .green{
+                 stroke: black;
+                stroke-width: 4px;
+                fill: #78C445;
+            }
+            .green:hover{fill: #66AB37;}
+            .week {
+                stroke: black;
+                stroke-width: 4px;
+                fill: none;
+                pointer-events: all;
+            }
+            .week:hover{fill:#E1E1E1;}
+            .line001 {
+                stroke: black;
+                stroke-width: 4px;
+                marker-end: url(#arrow001);
+            }
+            .cir002 {
+                fill:white;
+                stroke:black;
+                stroke-width:2px;
+            }
+            .cir002:hover{fill:#E1E1E1;}
+            .line002 {
+                stroke: black;
+                stroke-width: 2px;
+            }
+            .vertice010 circle {
+                fill:none;
+                stroke:black;
+                stroke-width:2px;
+                pointer-events:all;
+            }
+            .vertice010 circle:hover {fill:#E1E1E1;}
+            .vertice010 text{
+                fill:black;
+                font-family: sans-serif;
+                font-size: 50px;
+                text-anchor: middle;
+                dominant-baseline: central;
+                pointer-events: none;
+            }
+            .line010{
+                stroke: black;
+                stroke-width: 4px;
+            }
+            .line010 g text{
+                stroke:none;
+                fill: black;
+                font-family: sans-serif;
+                font-size: 50px;
+                text-anchor: middle;
+                dominant-baseline: central;
+            }
+            .line010 g text:hover{font-size:60px;}
+            .line010 g .line010arrow{
+                stroke: black;
+                stroke-width: 4px;
+                marker-end: url(#arrow010);
+            }
+            .col1-014 g rect {
+                stroke: #000E77;
+                stroke-width:2px;
+                fill: #DBE2EF;
+            }
+            .col1-014 g line {
+                stroke: #000E77;
+                stroke-width:1px;
+                fill: #DBE2EF;
+            }
+            .col1-014 g rect:hover{fill:#A2B5D6;}
+            .col1-014 g text{
+                fill: #000E77;
+                font-family:sans-serif;
+                font-size:24px;
+                text-anchor:middle;
+                dominant-baseline:central;
+                pointer-events: none;
+            }
+             .col2-014 g rect {
+                stroke: #AC3300;
+                stroke-width:2px;
+                fill: #F8E6DC;
+            }
+            .col2-014 g line {
+                stroke: #AC3300;
+                stroke-width:1px;
+            }
+            .col2-014 g rect:hover{fill:#E19469;}
+            .col2-014 g text{
+                fill: #AC3300;
+                font-family:sans-serif;
+                font-size:24px;
+                text-anchor:middle;
+                dominant-baseline:central;
+                pointer-events: none;
+            }
+            .col3-014 g rect {
+                stroke: #177421;
+                stroke-width:2px;
+                fill: #DDEDE0;
+            }
+            .col3-014 g line {
+                stroke: #177421;
+                stroke-width:1px;
+            }
+            .col3-014 g rect:hover{fill:#89C194;}
+            .col3-014 g text{
+                fill: #177421;
+                font-family:sans-serif;
+                font-size:24px;
+                text-anchor:middle;
+                dominant-baseline:central;
+                pointer-events: none;
+            }
+            .col1-014 .childtext,
+            .col2-014 .childtext,
+            .col3-014 .childtext {
+                font-size:20px;
+            }
+            .style007 g text{
+                font-family:sans-serif;
+                font-size:24px;
+                letter-spacing: -1px;
+                text-anchor:middle;
+                dominant-baseline:central;
+            }
+            .style007 g text tspan:hover{font-size:36px;}
+            .style007 g rect{
+                fill:white;
+                stroke:black;
+                stroke-width:1px;
+            }
+            .style007 g line{stroke-width:4px;}
+            .redarrow{stroke:red; marker-end:url(#arrow007red);}
+            .purplearrow{stroke:purple; marker-end:url(#arrow007purple);}
+            .bluearrow{stroke:blue; marker-end:url(#arrow007blue);}
+            .blacktext{fill: black;}
+            .redtext{fill:red;}
+            .orangetext{fill:orange;}
+            .chain01-004 text,
+            .chain02-004 text,
+            .chain03-004 text {
+                font-family:sans-serif;
+                font-size:18px;
+                text-anchor:middle;
+                dominant-baseline:central;
+            }
+            .chain01-004 text:hover,
+            .chain02-004 text:hover,
+            .chain03-004 text:hover {font-size:24px;}
+            .chain01-004 line,
+            .chain02-004 line,
+            .chain03-004 line {
+                stroke:black;
+                stroke-width:1px;
+            }
+            .chain03-004 .horizontalarrow004{
+                stroke:black;
+                stroke-width:1px;
+                marker-end:url(#arrow004);
+            }
+            .chain03-004 .horizontalarrow004:hover{stroke-width:2px;}
+            .chain03-004 .verticalline004{
+                stroke: black;
+                stroke-width: 1px;
+                stroke-dasharray: 5,5;
+            }
+            .doublearrow004{
+                stroke:black;
+                stroke-width:1px;
+                marker-start: url(#arrow004);
+                marker-end: url(#arrow004);
+            }
+            .gradrect008{
+                fill:url(#redgrad008);
+                stroke:black;
+                stroke-width:2px;
+            }
+            .gradrect008:hover{fill:#C00000;}
+            .textandlines008 text{
+                fill: black;
+                font-family:sans-serif;
+                font-size:14px;
+            }
+             .textandlines008 text:hover{font-size:18px;}
+            .textandlines008 line{
+                stroke:black;
+                stroke-width:1px;
+                marker-end:url(#arrow008);
+            }
+            .textandlines008 line:hover{stroke-width:3px;}
+            .opencontainer008{
+                stroke:#9B9BFF;
+                stroke-width:5px;
+                fill:none;
+                opacity: 0.9;
+            }
+            .opencontainer008:hover{stroke:#3F3FFF;}
+            .triangle008{fill:#9B9BFF; fill-opacity:0.9;}
+            .triangle008:hover{fill:#3F3FFF;}
+            .labelCurve{
+                fill: black;
+                font-family:sans-serif;
+                font-size:14px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 001 Concept Map -->
+        <section>
+            <h2>001 - Concept Map</h2>
+            <svg width="841" height="430" viewBox = "0 0 3362 1717">
+                <defs>
+                  <marker id="arrow001" viewBox="0 0 12 10" refX="10" refY="5"
+                          markerWidth="8" markerHeight="8" orient="auto">
+                    <path d="M0 0 L12 5 L0 10 Z"/>
+                  </marker>
+                </defs>
+
+                <!-- top level lines -->
+                <g>
+                    <line class ="line001" x1="1479" y1="413" x2="674" y2="897"/>
+                    <line class ="line001" x1="1613" y1="413" x2="1351" y2="897"/>
+                    <line class ="line001" x1="1763" y1="413" x2="2034" y2="897"/>
+                    <line class ="line001" x1="1908" y1="413" x2="2706" y2="897"/>
+                </g>
+
+                <!-- bottom level lines -->
+                <g> 
+                    <line class ="line001" x1="453" y1="1163" x2="453" y2="1456"/>
+                     <line class ="line001" x1="1279" y1="1163" x2="1279" y2="1456"/>
+                     <line class ="line001" x1="2102" y1="1163" x2="2102" y2="1456"/>
+                     <line class ="line001" x1="2928" y1="1163" x2="2928" y2="1456"/>
+                </g>
+                
+                 <g>
+                <!-- Rectangle at x=1341, y=156 (Width: 686, Height: 278) -->
+                <rect class="gray" x="1341" y="156" width="686" height="278" rx="139"/>
+                <!-- Text centered at x = 1341 + (686/2) = 1684, y = 280 -->
+                <text class = "label001" x="1684" y="280">
+                    <tspan x="1684" dy="0">Data Driven</tspan>
+                    <tspan x="1684" dy="1.2em">World</tspan>
+                </text>
+                </g>
+
+                <g>
+                    <text class = "label001" x="1685" y="545">
+                        learns
+                    </text>
+                </g>
+
+                <g>
+                <!-- Rectangle at x=110, y=900 (Width: 682, Height: 263) -->
+                <rect class="cyan" x="110" y="900" width="682" height="263"/>
+                <!-- Text centered at x = 110 + (682/2) = 451, y = 1020 -->
+                <text class="label001" x="451" y="1020">
+                    <tspan x="451" dy="0">Algorithms and Data</tspan>
+                    <tspan x="451" dy="1.2em">Structures</tspan>
+                </text>
+                </g>
+
+                <g>
+                <!-- Rectangle at x=935, y=900 (Width: 682, Height: 263) -->
+                <rect class ="pink" x="935" y="900" width="682" height="263"/>
+                <!-- Text centered at x = 935 + (682/2) = 1276, y = 1020 -->
+                <text class="label001" x="1276" y="1020">
+                    <tspan x="1276" dy="0">Object Oriented</tspan>
+                    <tspan x="1276" dy="1.2em">Programming</tspan>
+                </text>
+                </g>
+
+                <g>
+                <!-- Rectangle at x=1765, y=900 (Width: 682, Height: 263) -->
+                <rect class = "orange" x="1765" y="900" width="682" height="263"/>
+                <!-- Text centered at x = 1765 + (682/2) = 2106, y = 1040 -->
+                <text class="label001" x="2106" y="1040">State Machine</text>
+                </g>
+
+                <g>
+                <!-- Rectangle at x=2585, y=900 (Width: 682, Height: 263) -->
+                <rect class = "green" x="2585" y="900" width="682" height="263"/>
+                <!-- Text centered at x = 2585 + (682/2) = 2926, y = 1020 -->
+                <text class="label001" x="2926" y="1020">
+                    <tspan x="2926" dy="0">Introduction to</tspan>
+                    <tspan x="2926" dy="1.2em">Machine Learning</tspan>
+                </text>
+                </g>
+
+                <g>
+                <!-- Rectangle at x=227, y=1463 (Width: 451, Height: 115) -->
+                <rect class="week" x="227" y="1463" width="451" height="115"/>
+                <!-- Text centered at x = 227 + (451/2) = 453, y = 1540 -->
+                <text class="label001" x="453" y="1540">Week 1 to 6</text>
+                </g>
+
+                <g>
+                <!-- Rectangle at x=1055, y=1463 (Width: 451, Height: 115) -->
+                <rect class="week" x="1055" y="1463" width="451" height="115"/>
+                <!-- Text centered at x = 1055 + (451/2) = 1281, y = 1540 -->
+                <text class="label001" x="1281" y="1540">Week 4 to 8</text>
+                </g>
+
+                 <g>
+                <!-- Rectangle at x=1878, y=1463 (Width: 451, Height: 115) -->
+                <rect class="week" x="1878" y="1463" width="451" height="115"/>
+                <!-- Text centered at x = 1878 + (451/2) = 2104, y = 1540 -->
+                <text class="label001" x="2104" y="1540">Week 8</text>
+                </g>
+
+                 <g>
+                <!-- Rectangle at x=2704, y=1463 (Width: 451, Height: 115) -->
+                <rect class="week" x="2704" y="1463" width="451" height="115"/>
+                <!-- Text centered at x = 2704 + (451/2) = 2930, y = 1540 -->
+                <text class="label001" x="2930" y="1540">Week 9 to 11</text>
+                </g>
+
+            </svg>
+        </section>
+        <section>
+             <h2>002 - Binary Heap Tree</h2>
+            <svg width="592" height="377" viewBox = "0 0 592 377">
+                <!-- connecting lines -->
+                <g class="line002">
+                    <line x1="296" y1="56" x2="168" y2="141"></line> 
+                    <line x1="296" y1="56" x2="424" y2="141"></line>
+                    <line x1="168" y1="141" x2="104" y2="226"></line>
+                    <line x1="168" y1="141" x2="232" y2="226"></line>
+                    <line x1="424" y1="141" x2="360" y2="226"></line>
+                    <line x1="424" y1="141" x2="488" y2="226"></line>
+                    <line x1="104" y1="226" x2="72" y2="311"></line>
+                    <line x1="104" y1="226" x2="136" y2="311"></line>
+                    <line x1="232" y1="226" x2="200" y2="311"></line>
+                </g>
+                
+                <!-- formula: pos=i-(2^L-1), x coordinate = 40+512*((pos+0.5)/2^L) y coordinate=56+85*L-->
+                <g>
+                    <!-- level 0 first node: pos=0-(1-1) = 0, x = 40 + 512*0.5 = 296, y=56  -->
+                    <circle class="cir002" cx="296" cy="56" r="30"></circle>
+                    <text class="label002" x="296" y="56">16</text>
+                    <text class="label002" x="296" y="56">
+                        <tspan dx="-40" dy="-10">0</tspan>
+                    </text>
+                </g>
+
+                 <g>
+                    <!-- level 1 first node pos=1-(2-1) = 0, x = 40 + 512*0.25 = 168, y=56+85=141  -->
+                    <circle class="cir002" cx="168" cy="141" r="30"></circle>
+                    <text class="label002" x="168" y="141">14</text>
+                    <text class="label002" x="168" y="141">
+                        <tspan dx="-40" dy="-10">1</tspan>
+                    </text>
+                    <!-- level 1 second node pos=2-(2-1) = 1, x = 40 + 512*0.75 = 424, y=56+85=141  -->
+                    <circle class="cir002" cx="424" cy="141" r="30"></circle>
+                    <text class="label002" x="424" y="141">10</text>
+                    <text class="label002" x="424" y="141">
+                        <tspan dx="-40" dy="-10">2</tspan>
+                    </text>
+                </g>
+
+                <g>
+                    <!-- level 2 first node pos=3-(4-1) = 0, x = 40 + 512*0.125 = 104, y=56+170=226  -->
+                    <circle class="cir002" cx="104" cy="226" r="30"></circle>
+                    <text class="label002" x="104" y="226">8</text>
+                    <text class="label002" x="104" y="226">
+                        <tspan dx="-40" dy="-10">3</tspan>
+                    </text>
+                    <!-- level 2 second node pos=4-(4-1) = 1, x = 40 + 512*0.375 = 232, y=56+170=226  -->
+                    <circle class="cir002" cx="232" cy="226" r="30"></circle>
+                    <text class="label002" x="232" y="226">7</text>
+                    <text class="label002" x="232" y="226">
+                        <tspan dx="-40" dy="-10">4</tspan>
+                    </text>
+                     <!-- level 2 third node pos=5-(4-1) = 2, x = 40 + 512*0.625 = 360, y=56+170=226  -->
+                    <circle class="cir002" cx="360" cy="226" r="30"></circle>
+                    <text class="label002" x="360" y="226">9</text>
+                    <text class="label002" x="360" y="226">
+                        <tspan dx="-40" dy="-10">5</tspan>
+                    </text>
+                     <!-- level 2 fourth node pos=6-(4-1) = 3, x = 40 + 512*0.875 = 488, y=56+170=226  -->
+                    <circle class="cir002" cx="488" cy="226" r="30"></circle>
+                    <text class="label002" x="488" y="226">3</text>
+                    <text class="label002" x="488" y="226">
+                        <tspan dx="-40" dy="-10">6</tspan>
+                    </text>
+                </g>
+
+                <g>
+                    <!-- level 3 first node pos=7-(8-1) = 0, x = 40 + 512*0.0625 = 72, y=56+255=311  -->
+                    <circle class="cir002" cx="72" cy="311" r="30"></circle>
+                    <text class="label002" x="72" y="311">2</text>
+                    <text class="label002" x="72" y="311">
+                        <tspan dx="-40" dy="-10">7</tspan>
+                    </text>
+                    <!-- level 3 second node pos=8-(8-1) = 1, x = 40 + 512*0.1875 = 136, y=56+255=311  -->
+                    <circle class="cir002" cx="136" cy="311" r="30"></circle>
+                    <text class="label002" x="136" y="311">4</text>
+                    <text class="label002" x="136" y="311">
+                        <tspan dx="-30" dy="-30">8</tspan>
+                    </text>
+                     <!-- level 3 third node pos=9-(8-1) = 2, x = 40 + 512*0.3125 = 200, y=56+255=311  -->
+                    <circle class="cir002" cx="200" cy="311" r="30"></circle>
+                    <text class="label002" x="200" y="311">1</text>
+                    <text class="label002" x="200" y="311">
+                        <tspan dx="-30" dy="-30">9</tspan>
+                    </text>
+                </g>
+            </svg>
+        </section>
+
+        <section>
+            <h2>010 - Directed Graph</h2>
+            <svg width="897" height="655" viewBox="0 0 1793 1310">
+                <defs>
+                  <marker id="arrow010" viewBox="0 0 12 10" refX="10" refY="5"
+                          markerWidth="8" markerHeight="8" orient="auto">
+                    <path d="M0 0 L12 5 L0 10 Z"/>
+                  </marker>
+                </defs>
+                <g class="vertice010">
+                   <g>
+                    <!-- vertice 1 -->
+                    <circle cx="777" cy="200" r="115"></circle>
+                    <text x="777" y="200">V1</text>
+                   </g>
+                    <g>
+                    <!-- vertice 2 -->
+                    <circle cx="287" cy="500" r="115"></circle>
+                    <text x="287" y="500">V2</text>
+                   </g>
+                    <g>
+                    <!-- vertice 3 -->
+                    <circle cx="515" cy="1068" r="115"></circle>
+                    <text x="515" y="1068">V3</text>
+                   </g>
+                     <g>
+                    <!-- vertice 4 -->
+                    <circle cx="1077" cy="837" r="115"></circle>
+                    <text x="1077" y="837">V4</text>
+                   </g>
+                   <g>
+                    <!-- vertice 5 -->
+                    <circle cx="1563" cy="497" r="115"></circle>
+                    <text x="1563" y="497">V5</text>
+                   </g>
+                </g>
+                <g class="line010">
+                    <g>
+                        <line x1="675" y1="250" x2="373" y2="427"></line>
+                        <!-- E1: midpoint (524, 339), offset (-32, -51) -->
+                        <text x="524" y="339" dx="-30" dy="-52">E1</text>
+                    </g>
+                    <g>
+                        <line x1="335" y1="605" x2="473" y2="963"></line>
+                        <!-- E6: midpoint (400, 780), offset (-32, -51) -->
+                        <text x="400" y="780" dx="-56" dy="22">E6</text>
+                    </g>
+                    <g>
+                        <line class="line010arrow" x1="390" y1="550" x2="970" y2="790"></line>
+                        <text x="680" y="670" dx="23" dy="-55">E7</text>
+                    </g>
+                    <g>
+                        <line class="line010arrow" x1="969" y1="881" x2="621" y2="1020"></line>
+                        <text x="795" y="951" dx="22" dy="56">E5</text>
+                    </g>
+                    <g>
+                        <line class="line010arrow" x1="1027" y1="733" x2="826" y2="306"></line>
+                        <text x="927" y="519" dx="54" dy="-26">E4</text>
+                    </g>
+                    <g>
+                        <line class="line010arrow" x1="1467" y1="567" x2="1175" y2="768"></line>
+                        <text x="1321" y="668" dx="21" dy="56">E3</text>
+                    </g>
+                     <g>
+                        <line class="line010arrow" x1="881" y1="241" x2="1452" y2="457"></line>
+                        <text x="1167" y="349" dx="21" dy="-56">E2</text>
+                    </g>
+                </g>
+            </svg>
+        </section>
+        <section>
+            <h2>014 - Seaborn Hierarchy</h2>
+            <svg width="633" height="457" viewBox="0 0 633 457">
+                <rect x="0" y="0" width="633" height="457" fill="white"></rect>
+                <!--
+                  Layout constants (all px, derived from sketch: x=8, y=24.625x≈197, z=9)
+                  horizontalMargin=11(canvas edge -> column 1 left)
+                  gap,x=8(between columns)
+                  headercolWidth,y=197(header box width = y)
+                  verticalMargin=48(canvas top -> header top = 5.3z)
+                  headerHeight=120(header box height = 13.3z)
+                  headerToChild=18(header bottom -> first child top = 2z)
+                  childHeight=32(one child box height = 3.6z)
+                  childGap,z=9(between child boxes = 1z)
+                  childcolWidth=149(child box width = 18.625x, centred under header)
+                -->
+                <g class="col1-014">
+                    <!-- column 1 plot -->
+                    <g>
+                        <line x1="110" y1="168" x2="110" y2="227"></line>
+                        <!-- header box -->
+                        <rect x="11" y="48" width="197" height="120" rx="25"></rect>
+                        <text>
+                            <tspan x="109" y="99">relplot</tspan>
+                            <tspan x="109" dy="25">(relational)</tspan>
+                        </text>
+                    </g>
+                    <g>
+                        <!-- child box scatterplot x=11+(197-149)/2 = 35, y = 48+120+18 = 186-->
+                        <rect x="35" y="186" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="35" y="186" dx="75" dy="16">scatterplot</text>
+                    </g>
+                    <g>
+                        <!-- child box lineplot x=35, y=186+32+9=227 -->
+                        <rect x="35" y="227" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="35" y="227" dx="75" dy="16">lineplot</text>
+                    </g>
+                </g>
+                 <g class="col2-014">
+                    <!-- column 2 plot -->
+                    <g>
+                        <!-- connector line -->
+                        <line x1="315" y1="168" x2="315" y2="309"></line>
+                        <!-- header box x=11+197+8 = 216, y=48-->
+                        <rect x="216" y="48" width="197" height="120" rx="25"></rect>
+                        <text>
+                            <tspan x="314" y="95">displot</tspan>
+                            <tspan x="314" dy="25">(distributions)</tspan>
+                        </text>
+                    </g>
+                    <g>
+                        <!-- child box histplot x=216+(197-149)/2 = 240, y = 48+120+18 = 186-->
+                        <rect x="240" y="186" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="240" y="186" dx="75" dy="16">histplot</text>
+                    </g>
+                    <g>
+                        <!-- child box kdeplot x=240, y=186+32+9=227 -->
+                        <rect x="240" y="227" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="240" y="227" dx="75" dy="16">kdeplot</text>
+                    </g>
+                      <g>
+                        <!-- child box ecdfplot x=240, y=227+32+9=268 -->
+                        <rect x="240" y="268" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="240" y="268" dx="75" dy="16">ecdfplot</text>
+                    </g>
+                      <g>
+                        <!-- child box rugplot x=240, y=268+32+9=309 -->
+                        <rect x="240" y="309" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="240" y="309" dx="75" dy="16">rugplot</text>
+                    </g>
+                </g>
+                 <g class="col3-014">
+                    <!-- column 3 plot -->
+                    <g>
+                        <!-- connector line -->
+                        <line x1="520" y1="168" x2="520" y2="391"></line>
+                        <!-- header box x=216+197+8=421, y=48-->
+                        <rect x="421" y="48" width="197" height="120" rx="25"></rect>
+                        <text>
+                            <tspan x="519" y="95">catplot</tspan>
+                            <tspan x="519" dy="25">(categorical)</tspan>
+                        </text>
+                    </g>
+                    <g>
+                        <!-- child box stripplot x=421+(197-149)/2 = 445, y = 48+120+18 = 186-->
+                        <rect x="445" y="186" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="445" y="186" dx="75" dy="16">stripplot</text>
+                    </g>
+                    <g>
+                        <!-- child box swarmplot x=445, y=186+32+9=227 -->
+                        <rect x="445" y="227" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="445" y="227" dx="75" dy="16">swarmplot</text>
+                    </g>
+                    <g>
+                        <!-- child box boxplot x=445, y=227+32+9=268 -->
+                        <rect x="445" y="268" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="445" y="268" dx="75" dy="16">boxplot</text>
+                    </g>
+                    <g>
+                        <!-- child box violinplot x=445, y=268+32+9=309 -->
+                        <rect x="445" y="309" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="445" y="309" dx="75" dy="16">violinplot</text>
+                    </g>
+                    <g>
+                        <!-- child box pointplot x=445, y=309+32+9=350 -->
+                        <rect x="445" y="350" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="445" y="350" dx="75" dy="16">pointplot</text>
+                    </g>
+                     <g>
+                        <!-- child box barplot x=445, y=350+32+9=391 -->
+                        <rect x="445" y="391" width="149" height="32" rx="10"></rect>
+                        <text class="childtext" x="445" y="391" dx="75" dy="16">barplot</text>
+                    </g>
+                </g>
+            </svg>
+        </section>
+        <section>
+            <h2>007 - Merge Sort Arrays</h2>
+            <svg class="style007" width="532" height="247" viewBox="0 0 532 247">
+                 <defs>
+                  <marker id="arrow007red" viewBox="0 0 12 10" refX="10" refY="5"
+                          markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M0 0 L12 5 L0 10 Z" fill="red"/>
+                  </marker>
+                    <marker id="arrow007purple" viewBox="0 0 12 10" refX="10" refY="5"
+                          markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M0 0 L12 5 L0 10 Z" fill="purple"/>
+                  </marker>
+                    <marker id="arrow007blue" viewBox="0 0 12 10" refX="10" refY="5"
+                          markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M0 0 L12 5 L0 10 Z" fill="blue"/>
+                  </marker>
+                 </defs>
+                <g>
+                    <line class="redarrow" x1="333" y1="116" x2="333" y2="75"></line>
+                    <rect x="21" y="19" width="388" height="51"></rect>
+                    <text x="215" y="45">
+                        <tspan class="blacktext">[</tspan>                       
+                        <tspan class="redtext">1</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">2</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">3</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">4</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">7</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">8</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">8</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">10</tspan>
+                        <tspan class="redtext">, </tspan>
+                        <tspan class="redtext">14</tspan>
+                        <tspan class="blacktext">]</tspan>
+                    </text>
+                </g>
+                <g>
+                    <line class="purplearrow" x1="180" y1="229" x2="180" y2="185"></line>
+                    <rect x="21" y="127" width="243" height="51"></rect>
+                    <text x="143" y="150">
+                        <tspan class="blacktext">[</tspan>                       
+                        <tspan class="orangetext">7</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">8</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">10</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">14</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">16</tspan>
+                        <tspan class="blacktext">]</tspan>
+                    </text>
+                </g>
+                <g>
+                    <line class="bluearrow" x1="497" y1="229" x2="497" y2="185"></line>
+                    <rect x="310" y="127" width="175" height="51"></rect>
+                    <text x="397" y="150">
+                        <tspan class="blacktext">[</tspan>                       
+                        <tspan class="orangetext">1</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">2</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">3</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">4</tspan>
+                        <tspan class="blacktext">, </tspan>
+                        <tspan class="orangetext">8</tspan>
+                        <tspan class="blacktext">]</tspan>
+                    </text>
+                </g>
+            </svg>
+        </section>
+        <section>
+            <h2>004 - Recursion Tree</h2>
+            <svg width="425" height="275" viewBox="0 0 425 275">
+             <defs>
+              <marker id="arrow004" viewBox="0 0 12 10" refX="10" refY="5"
+                      markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+                    <path d="M0 0 L12 5 L0 10 Z"/>
+              </marker>
+             </defs>
+                <g class="chain01-004">
+                    <text x="33" y="21">c</text>
+                    <line x1="33" y1="33" x2="33" y2="62"></line>
+                    <text x="33" y="79">T(n-1)</text>
+                </g>
+                <g class="chain02-004">
+                    <text x="154" y="21">c</text>
+                    <line x1="154" y1="33" x2="154" y2="62"></line>
+                    <text x="154" y="79">c</text>
+                    <line x1="154" y1="93" x2="154" y2="122"></line>    
+                    <text x="154" y="137">T(n-2)</text>
+                </g>
+                <g class="chain03-004">
+                    <text x="259" y="21">c</text>
+                    <line class="horizontalarrow004" x1="278" y1="23" x2="321" y2="23"></line>
+                    <text x="340" y="21">c</text>
+
+                    <line x1="259" y1="33" x2="259" y2="62"></line>
+
+                    <text x="259" y="79">c</text>
+                    <line class="horizontalarrow004" x1="278" y1="81" x2="321" y2="81"></line>
+                    <text x="340" y="79">c</text>
+
+                    <line x1="259" y1="93" x2="259" y2="122"></line>
+
+                    <text x="259" y="137">c</text>
+                    <line class="horizontalarrow004" x1="278" y1="139" x2="321" y2="139"></line>
+                    <text x="340" y="137">c</text>
+
+                    <line class="verticalline004" x1="259" y1="149" x2="259" y2="230"></line>
+
+                    <text x="259" y="247">T(1)</text>
+                    <line class="horizontalarrow004" x1="278" y1="249" x2="321" y2="249"></line>
+                    <text x="340" y="247">c</text>
+
+                    <line class="doublearrow004" x1="369" y1="19" x2="369" y2="252"></line>
+                    <text x="397" y="134">n</text>
+                </g>
+            </svg>
+        </section>
+        <section>
+            <h2>008 - Stack Diagram1</h2>
+            <svg width="180" height="270" viewBox="0 0 180 270">
+                <defs>
+                    <linearGradient id="redgrad008" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FF7C7C"/>
+                        <stop offset="100%" stop-color="#FF1F1F"/>
+                    </linearGradient>
+                     <marker id="arrow008" viewBox="0 0 15 14" refX="13" refY="7"
+                         markerWidth="7" markerHeight="7" orient="auto">
+                         <path d="M0 0 L15 7 L0 14" fill="none" stroke="black" stroke-width="1.5"/>
+                     </marker>
+                </defs>
+                <!-- red rectangles -->
+                <g> 
+                    <rect class="gradrect008" x="8" y="8" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="100" y="8" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="54" y="90" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="54" y="125" width="71" height="26"></rect>
+                    <rect class="gradrect008" x="54" y="161" width="71" height="26"></rect>
+                </g>
+                <!-- text and arrows -->
+                <g class="textandlines008">
+                    <text x="26" y="69">push</text>
+                    <text x="126" y="69">pop</text>
+                    <text x="135" y="105">peek</text>
+                    <line x1="54" y1="44" x2="74" y2="80"></line>
+                    <line x1="105" y1="80" x2="125" y2="44"></line>
+                </g>
+                <g>
+                    <!-- purple shapes -->
+                    <path class="opencontainer008" d="M 45 90 
+                                                    L 45 255 
+                                                    Q 45 260 50 260 
+                                                    L 129 260 
+                                                    Q 134 260 134 255
+                                                    L 134 122"/>
+                    <path class="triangle008" d="M 90 198 L56 215 L124 215 Z"/>
+                </g>
+            </svg>
+        </section>
+        <section>
+            <h2>003 - Growth Curves</h2>
+            <svg id="graph" width="800" height="600" viewBox="0 0 800 600"></svg>
+        </section>
+        <script>
+            // generate x values to input into the various functions, 101 values inclusive of 0.01 and 10
+            let xValues = [];
+            let step = 0.01;
+            for(let x = 0.01; x <= 10; x += step){
+                xValues.push(x);
+            }
+
+            // sets up the y values as an array iaw the formula within the brackets
+            let yLinear = xValues.map(x => x);
+            let yCubic = xValues.map(x => x*x*x);
+            let yQuadratic = xValues.map(x => x*x);
+            let yExp = xValues.map(x => Math.pow(2,x));
+            let yLog = xValues.map(x => Math.log(x));
+            let yLogLinear = xValues.map(x => x * Math.log(x));
+
+            const marginLeft = 60;
+            const marginTop = 20;
+            const marginRight = 20;
+            const marginBottom = 50;
+            const plotWidth = 720;
+            const plotHeight = 530;
+                
+            function xToPixelX (x) {
+                // a fraction of the x domain converted to the plotWidth in pixels
+                return marginLeft + (x / 10) * plotWidth;
+            }
+            function yToPixelY (y){
+                // accounts that y is counting from top down
+                return marginTop + plotHeight - (y/50) * plotHeight;
+            }
+
+          
+           const svg = document.getElementById("graph");
+          
             
             // function to assign the x values and y values to an array and add the curve to the svg element which references the svg id="graph"
-            function drawCurve(yArray) {
+            function drawCurve(yArray, labelElement) {
                 let points = [];
                 for (let i = 0; i < xValues.length; i++) {
                     // loop stops when y exceeds 50
@@ -857,8 +1709,9 @@
                polyline.setAttribute("points", points.join(" "));
                polyline.setAttribute("fill", "none");
                polyline.setAttribute("stroke", "black");
-               polyline.setAttribute("stroke-width", "2");
+               polyline.setAttribute("stroke-width", "30");
                 polyline.setAttribute("opacity", "0");
+                polyline.setAttribute("class","growthCurve");
                svg.appendChild(polyline);
                 
                 const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
@@ -869,14 +1722,20 @@
                     anim.setAttribute("begin", "1s");
                     anim.setAttribute("fill", "freeze");
                     polyline.appendChild(anim);
+
+                console.log("about to attach listener to:", polyline); // TEMP, place right before addEventListener
+                
+                polyline.addEventListener("mouseenter", () => {
+                    console.log("MOUSEENTER FIRED"); // TEMP
+                    labelElement.setAttribute("fill", "red");
+                    labelElement.setAttribute("font-size", "16");
+                });
+                polyline.addEventListener("mouseleave", () => {
+                    labelElement.setAttribute("fill", "black");
+                    labelElement.setAttribute("font-size", "14");
+                });
             }
-            
-            drawCurve(yLog);
-            drawCurve(yLinear);
-            drawCurve(yLogLinear);
-            drawCurve(yQuadratic);
-            drawCurve(yCubic);
-            drawCurve(yExp);
+        
 
             //creates the borders of the graph
             const border = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -961,6 +1820,7 @@
             label.setAttribute("y", y);
             label.setAttribute("fill", "black");
             label.setAttribute("opacity",0);
+           label.setAttribute("class","labelCurve");
             label.textContent = text;
             svg.appendChild(label);
 
@@ -973,13 +1833,23 @@
            fadeIn.setAttribute("begin", "2s");
            fadeIn.setAttribute("fill", "freeze");
            label.appendChild(fadeIn);
+
+           return label
         }
-        drawLabel("logarithmic", xToPixelX(8), yToPixelY(Math.log(8)) - 10);
-        drawLabel("linear", xToPixelX(8), yToPixelY(8) - 10);
-        drawLabel("log linear", xToPixelX(7), yToPixelY(7 * Math.log(7)) - 30);
-        drawLabel("quadratic", xToPixelX(6), yToPixelY(6*6) + 15);
-        drawLabel("cubic", xToPixelX(2.8)-30, yToPixelY(2.8*2.8*2.8) - 50);
-        drawLabel("exponential", xToPixelX(4.5)-80, yToPixelY(Math.pow(2,4.5)) - 10);
+        let labelLog = drawLabel("logarithmic", xToPixelX(8), yToPixelY(Math.log(8)) - 10);
+        let labelLinear = drawLabel("linear", xToPixelX(8), yToPixelY(8) - 10);
+        let labelLogLinear = drawLabel("log linear", xToPixelX(7), yToPixelY(7 * Math.log(7)) - 30);
+        let labelQuad = drawLabel("quadratic", xToPixelX(6), yToPixelY(6*6) + 15);
+        let labelCubic = drawLabel("cubic", xToPixelX(2.8)-30, yToPixelY(2.8*2.8*2.8) - 50);
+        let labelExp = drawLabel("exponential", xToPixelX(4.5)-80, yToPixelY(Math.pow(2,4.5)) - 10);
+            
+        drawCurve(yLog, labelLog);
+        drawCurve(yLinear, labelLinear);
+        drawCurve(yLogLinear, labelLogLinear);
+        drawCurve(yQuadratic, labelQuad);
+        drawCurve(yCubic, labelCubic);
+        drawCurve(yExp, labelExp);
+        
         </script>
     </body>
 </html>
