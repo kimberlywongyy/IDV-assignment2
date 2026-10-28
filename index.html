@@ -859,6 +859,19 @@
                polyline.setAttribute("stroke", "black");
                polyline.setAttribute("stroke-width", "2");
                svg.appendChild(polyline);
+
+                const len = polyline.getTotalLength();
+                polyline.setAttribute("stroke-dasharray", len);
+                polyline.setAttribute("stroke-dashoffset", len);
+
+                const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+                    anim.setAttribute("attributeName", "stroke-dashoffset");
+                    anim.setAttribute("from", len);
+                    anim.setAttribute("to", "0");
+                    anim.setAttribute("dur", "1s");
+                    anim.setAttribute("begin", "1s");
+                    anim.setAttribute("fill", "freeze");
+                    polyline.appendChild(anim);
             }
             
             drawCurve(yLog);
@@ -952,6 +965,16 @@
             label.setAttribute("fill", "black");
             label.textContent = text;
             svg.appendChild(label);
+
+           //animate the labels fading in 2s after page loads
+           const fadeIn = document.createElementsNS("http://www.w3.org/2000/svg", "animate");
+           fadeIn.setAttribute("attributeName", "opacity");
+           fadeIn.setAttribute("from", "0");
+           fadeIn.setAttribute("to", "1");
+           fadeIn.setAttribute("dur", "0.5s");
+           fadeIn.setAttribute("begin", "2s");
+           fadeIn.setAttribute("fill", "freeze");
+           label.appendChild(fadeIn);
         }
         drawLabel("logarithmic", xToPixelX(8), yToPixelY(Math.log(8)) - 10);
         drawLabel("linear", xToPixelX(8), yToPixelY(8) - 10);
