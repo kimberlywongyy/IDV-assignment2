@@ -857,7 +857,7 @@
                polyline.setAttribute("points", points.join(" "));
                polyline.setAttribute("fill", "none");
                polyline.setAttribute("stroke", "black");
-               polyline.setAttribute("stroke-width", "30");
+               polyline.setAttribute("stroke-width", "2");
                 polyline.setAttribute("opacity", "0");
                svg.appendChild(polyline);
                 
@@ -873,10 +873,14 @@
                 polyline.addEventListener("mouseenter", () => {
                     labelElement.setAttribute("fill", "red");
                     labelElement.setAttribute("font-size", "16");
+                    polyline.setAttribute("stroke","red");
+                    polyline.setAttribute("stroke-width","4");
                 });
                 polyline.addEventListener("mouseleave", () => {
                     labelElement.setAttribute("fill", "black");
                     labelElement.setAttribute("font-size", "14");
+                    polyline.setAttribute("stroke", "black");
+                    polyline.setAttribute("stroke-width", "2");
                 });
             }
         
@@ -963,6 +967,8 @@
             label.setAttribute("x", x);
             label.setAttribute("y", y);
             label.setAttribute("fill", "black");
+           label.setAttribute("font-family", "sans-serif");
+           label.setAttribute("font-size", "14");
             label.setAttribute("opacity",0);
             label.textContent = text;
             svg.appendChild(label);
