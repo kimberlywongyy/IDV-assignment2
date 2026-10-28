@@ -858,16 +858,13 @@
                polyline.setAttribute("fill", "none");
                polyline.setAttribute("stroke", "black");
                polyline.setAttribute("stroke-width", "2");
+                polyline.setAttribute("opacity", "0");
                svg.appendChild(polyline);
-
-                const len = polyline.getTotalLength();
-                polyline.setAttribute("stroke-dasharray", len);
-                polyline.setAttribute("stroke-dashoffset", len);
-
+                
                 const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-                    anim.setAttribute("attributeName", "stroke-dashoffset");
-                    anim.setAttribute("from", len);
-                    anim.setAttribute("to", "0");
+                    anim.setAttribute("attributeName", "opacity");
+                    anim.setAttribute("from", "0");
+                    anim.setAttribute("to", "1");
                     anim.setAttribute("dur", "1s");
                     anim.setAttribute("begin", "1s");
                     anim.setAttribute("fill", "freeze");
