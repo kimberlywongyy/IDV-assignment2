@@ -243,11 +243,6 @@
             .opencontainer008:hover{stroke:#3F3FFF;}
             .triangle008{fill:#9B9BFF; fill-opacity:0.9;}
             .triangle008:hover{fill:#3F3FFF;}
-            .labelCurve{
-                fill: black;
-                font-family:sans-serif;
-                font-size:14px;
-            }
         </style>
     </head>
     <body>
@@ -844,7 +839,6 @@
 
           
            const svg = document.getElementById("graph");
-            // document.getElementById("graph").addEventListener("mouseenter", () => console.log("SVG HOVER WORKS"));<!DOCTYPE html>
            
             // function to assign the x values and y values to an array and add the curve to the svg element which references the svg id="graph"
             function drawCurve(yArray, labelElement) {
@@ -865,7 +859,6 @@
                polyline.setAttribute("stroke", "black");
                polyline.setAttribute("stroke-width", "30");
                 polyline.setAttribute("opacity", "0");
-                polyline.setAttribute("class","growthCurve");
                svg.appendChild(polyline);
                 
                 const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
@@ -876,11 +869,8 @@
                     anim.setAttribute("begin", "1s");
                     anim.setAttribute("fill", "freeze");
                     polyline.appendChild(anim);
-
-                console.log("about to attach listener to:", polyline); // TEMP, place right before addEventListener
                 
                 polyline.addEventListener("mouseenter", () => {
-                    console.log("MOUSEENTER FIRED"); // TEMP
                     labelElement.setAttribute("fill", "red");
                     labelElement.setAttribute("font-size", "16");
                 });
@@ -974,7 +964,6 @@
             label.setAttribute("y", y);
             label.setAttribute("fill", "black");
             label.setAttribute("opacity",0);
-           label.setAttribute("class","labelCurve");
             label.textContent = text;
             svg.appendChild(label);
 
